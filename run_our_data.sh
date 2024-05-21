@@ -1,0 +1,21 @@
+python train.py \
+--dataroot /root/autodl-tmp/data \
+--batchSize 4 \
+--loadSize 256 \
+--fineSize 256 \
+--input_nc 3 \
+--output_nc 3 \
+--ngf 64 \
+--ndf 64 \
+--which_model_netD basic \
+--which_model_netG resnet_9blocks \
+--n_layers_D 3 \
+--gpu_ids 0 \
+--name experiment_name \
+--dataset_mode unaligned \
+--model cycle_gan \
+--which_direction AtoB \
+--nThreads 2 \
+--checkpoints_dir ./checkpoints/aicha/ \
+--norm instance \
+--resize_or_crop resize_and_crop

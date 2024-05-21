@@ -4,7 +4,7 @@ import ntpath
 import time
 from . import util
 from . import html
-from scipy.misc import imresize
+from scipy import resize
 
 
 class Visualizer():
@@ -138,7 +138,7 @@ class Visualizer():
         links = []
 
         for label, im in visuals.items():
-            if label is 'fake_B':
+            if label == 'fake_B':
 
                 # image_name = '%s_%s.png' % (name, label)
                 image_name = '%s.png' % (name)
@@ -146,11 +146,11 @@ class Visualizer():
                 h, w, _ = im.shape
                 if aspect_ratio > 1.0:
                     print("in > 1")
-                    im = imresize(im, (h, int(w * aspect_ratio)), interp='bicubic')
+                    im = resize(im, (h, int(w * aspect_ratio)), interp='bicubic')
                 if aspect_ratio < 1.0:
                     print("in < 1")
 
-                    # im = imresize(im, (int(h / aspect_ratio), w), interp='bicubic')
+                    # im = resize(im, (int(h / aspect_ratio), w), interp='bicubic')
 
                 util.save_image(im, save_path)
 
